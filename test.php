@@ -1,28 +1,26 @@
 <?php
 
-// TwitterOAuthを利用するためComposerのautoload.phpを読み込み
-require __DIR__ . '/vendor/autoload.php';
-// TwitterOAuthクラスをインポート
-use Abraham\TwitterOAuth\TwitterOAuth;
+require "vendor/autoload.php";
 
-// Twitter APIを利用するための認証情報。xxxxxxxxの箇所にそれぞれの情報をセット
-const TW_CK = 'xxxxxxxx'; // Consumer Keyをセット
-const TW_CS = 'xxxxxxxx'; // Consumer Secretをセット
-const TW_AT = 'xxxxxxxx'; // Access Tokenをセット
-const TW_ATS = 'xxxxxxxx'; // Access Token Secretをセット
+use Coderjerk\BirdElephant\BirdElephant;
 
-// TwitterOAuthクラスのインスタンスを作成
-$connect = new TwitterOAuth( TW_CK, TW_CS, TW_AT, TW_ATS );
-// Twitter API v2. を利用する場合
-$connect->setApiVersion('2');
+require __DIR__ . '/config.php';
 
-$tweet = 'xxxxxxxx';
-$result = $connect->post(
-    'statuses/update',
-    array(
-		// 投稿するツイートを指定
-        'status' => $tweet
-    )
-); 
+//your credentials, should be passed in via $_ENV or similar, don't hardcode.
+$credentials = array(
+    'bearer_token' => TW_BT,
+    'consumer_key' => TW_CK,
+    'consumer_secret' => TW_CS,
+    'token_identifier' => TW_AT,
+    'token_secret' => TW_ATS,
+);
+
+//instantiate the object
+$twitter = new BirdElephant($credentials);
+
+//get a user's followers using the handy helper methods
+$followers = $twitter->user('chihiro_1000c')->followers();
+
+var_dump($followers);
 
 ?>
