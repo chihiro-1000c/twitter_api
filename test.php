@@ -19,8 +19,10 @@ $credentials = array(
 $twitter = new BirdElephant($credentials);
 
 //get a user's followers using the handy helper methods
-$followers = $twitter->user('chihiro_1000c')->followers();
+// $followers = $twitter->user('chihiro_1000c')->followers();
+// var_dump($followers);
+$tweet = (new \Coderjerk\BirdElephant\Compose\Tweet)->text("Hello from API");
 
-var_dump($followers);
-
+$tweets = $twitter->tweets();
+$tweets->tweet($tweet);
 ?>
