@@ -1,6 +1,5 @@
 {
     "require": {
-        "abraham/twitteroauth": "^3.1",
-        "coderjerk/bird-elephant": "^0.4.3"
+        "abraham/twitteroauth": "^3.1"
     }
 }
