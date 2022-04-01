@@ -10,7 +10,7 @@ date_default_timezone_set('Asia/Tokyo');
 $today = new DateTime('now');
 $formatedToday = $today->format('Y-m-d');
 
-$start        = new DateTime('2022-03-14');
+$start        = new DateTime('2022-04-01');
 $current      = new DateTime($formatedToday);
 $end          = new DateTime('2023-04-01');
 
