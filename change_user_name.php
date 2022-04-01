@@ -18,7 +18,7 @@ $elapsedDays  = $start->diff($current)->format("%r%a") + 1;
 $intervalDays = $current->diff($end)->format("%r%a");
 
 if($intervalDays >= 1) {
-  $profile_name = "ちひろ@${intervalDays}日後に開発エンジニアに転職するコーダー（${elapsedDays}日目）";
+  $profile_name = "ちひろ@${intervalDays}日後に開発エンジニアになるコーダー（${elapsedDays}日目）";
 } else {
   $profile_name = "ちひろ@エンジニア";
 }
