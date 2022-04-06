@@ -33,7 +33,7 @@ $greets = [
   "Bom dia!",
   "Goede morgen!",
   "Gunaydin!",
-  "God morogon"
+  "God morogon!"
 ];
 
 $greet_key = array_rand($greets);
