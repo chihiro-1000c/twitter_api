@@ -39,7 +39,7 @@ $greets = [
 $greet_key = array_rand($greets);
 $greet = $greets[$greet_key];
 
-$tweet = "
+$tweet01 = "
 ${greet}
 おはようございます！
 
@@ -50,8 +50,17 @@ ${intervalDays}日後に開発エンジニアになるぞ〜!!
 #駆け出しエンジニアと繋がりたい
 ";
 
+$tweet02 = "
+${greet}
+おはようございます！
+
+今日で学習${elapsedDays}日目!!
+${intervalDays}日後に開発エンジニアになるぞ〜!!
+";
+
 $connection->post("account/update_profile", ["name" => $profile_name, "description" => $description]);
-$connection->post("statuses/update", array("status" => $tweet));
+$connection->post("statuses/update", array("status" => $tweet01));
+$connection->post("statuses/update", array("status" => $tweet02));
 
 
 ?>
