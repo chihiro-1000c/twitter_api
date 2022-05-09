@@ -39,18 +39,7 @@ $greets = [
 $greet_key = array_rand($greets);
 $greet = $greets[$greet_key];
 
-$tweet01 = "
-${greet}
-おはようございます！
-
-今日で学習${elapsedDays}日目!!
-${intervalDays}日後に開発エンジニアになるぞ〜!!
-
-#プログラミング初心者 
-#駆け出しエンジニアと繋がりたい
-";
-
-$tweet02 = "
+$tweet = "
 ${greet}
 おはようございます！
 
@@ -58,9 +47,23 @@ ${greet}
 ${intervalDays}日後に開発エンジニアになるぞ〜!!
 ";
 
-$connection->post("account/update_profile", ["name" => $profile_name, "description" => $description]);
-$connection->post("statuses/update", array("status" => $tweet01));
-$connection->post("statuses/update", array("status" => $tweet02));
+//画像のパス
+$image_url = "https://grass-graph.appspot.com/images/chihiro-1000c.png";
+$image = file_get_contents($image_url);
+//保存するファイル名
+$file_name = "chihiro-1000c_${formatedToday}.jpg";
+$save_path = "./files/" . $file_name;
+file_put_contents($save_path, $image);
+$imageId = $connection->upload('media/upload', ['media' => $save_path]);
 
 
-?>
+$connection->post("account/update_profile", [
+  "name" => $profile_name,
+  "description" => $description
+]);
+$connection->post("statuses/update", array(
+  "status" => $tweet,
+  'media_ids' => implode(',', [
+    $imageId->media_id_string
+  ])
+));
