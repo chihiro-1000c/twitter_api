@@ -21,7 +21,7 @@ $intervalDays = $current->diff($end)->format("%r%a");
 // $description = $user_data->description;
 
 $profile_name = "ちひろ@Webエンジニアのたまご🐣";
-$description = "${intervalDays}日後に開発エンジニアになるちひろです!!｜新人コーダー1年目(2022.4.1 ~) 今日で${elapsedDays}日目!!｜業務はhtml/CSS/JavaScript/WordPress ゴリゴリ｜プログラミング学習中｜勉強する → React, Laravel, sql｜好き → 散歩🐾お肉🍖お寿司🍣｜ごめんなさい本名ですが👦です!!";
+$description = "${intervalDays}日後に開発エンジニアになるちひろです!!｜新人コーダー1年目(2022.4.1 ~) 今日で${elapsedDays}日目!!｜業務はhtml/CSS/JavaScript/WordPress ゴリゴリ｜勉強する → React, Laravel, sql｜好き → 散歩🐾お肉🍖お寿司🍣｜ごめんなさい本名ですが👦です!!";
 
 
 $greets = [
